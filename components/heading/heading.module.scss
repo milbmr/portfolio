@@ -1,0 +1,32 @@
+.heading {
+  text-align: center;  
+  padding: 3rem 0;
+  position: relative;
+  margin-top: 3rem;
+
+
+  &-main {
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+  }
+
+  &-back {
+    position: absolute;
+    top: 35px;
+    color: #191919;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    font-weight: 700;
+    font-size: 5.2rem;
+    text-transform: uppercase;
+    line-height: 0;
+    z-index: 1;
+  }
+}
