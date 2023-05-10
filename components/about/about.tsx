@@ -57,6 +57,15 @@ export default function About() {
               ))
             )}
           </div>
+          <div className={c("about-link")}>
+            <a
+              href="/miloud.pdf"
+              download="resume"
+              className={c("about-download")}
+            >
+              Download resume
+            </a>
+          </div>
           <div className={c("about-description")}>
             <p className={c("about-description-text")}>
               Frontend developer with expertise in HTML, CSS, JavaScript, and

@@ -114,6 +114,27 @@
       letter-spacing: 0.5px;
     }
   }
+
+  &-link {
+    margin: 3rem 0;
+  }
+
+  &-download:link,
+  &-download:visited {
+    text-decoration: none;
+    padding: 1.2rem 2.4rem;
+    border: 1px solid #828282;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    transition: all .3s;
+
+    &:hover,
+    &:active {
+      border-color: var(--p-c);
+      color: var(--p-c);
+      background-color: #82828256;
+    }
+  }
 }
 
 @keyframes left-shift {
