@@ -38,6 +38,16 @@ body {
   }
 }
 
+@media screen and (max-width: 28.75em) {
+  html {
+    font-size: 50%;
+  }
+
+  .container {
+    max-width: 40rem;
+  }
+}
+
 @media screen and (max-width: 20em) {
   html {
     font-size: 50%;
