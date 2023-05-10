@@ -24,7 +24,7 @@ export default function Services() {
   const { ref, isIntersecting } = useIntersction();
 
   return (
-    <section ref={ref} className={c("services")}>
+    <section id="services" ref={ref} className={c("services")}>
       <Heading>my services</Heading>
       <div
         className={c(`services-container ${cn({ animation: isIntersecting })}`)}
