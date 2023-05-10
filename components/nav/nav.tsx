@@ -22,7 +22,7 @@ export default function Nav() {
   });
   const viewport = useViewport();
 
-  const isMobile = viewport && viewport <= 460;
+  const isMobile = viewport <= 460;
 
   const activeClassHandler = (link: string) => {
     setActive(link);
