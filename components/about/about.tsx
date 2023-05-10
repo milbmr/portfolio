@@ -27,49 +27,47 @@ export default function About() {
   const { ref, isIntersecting } = useIntersction();
 
   return (
-    <div className="">
-      <div ref={ref} id="about" className={c("about")}>
-        <Heading>about me</Heading>
-        <div className={c("about-about")}>
-          <div className={c(`about-photo ${cn({ active: isIntersecting })}`)}>
+    <section ref={ref} id="about" className={c("about")}>
+      <Heading>about me</Heading>
+      <div className={c("about-about")}>
+        <div className={c(`about-photo ${cn({ active: isIntersecting })}`)}>
+          <div className={c("about-photo-container")}>
             <Image
-              src="/profile.jpg"
+              src="/photo.jpg"
               alt="profile"
               className={c("about-photo-pic")}
               width={500}
               height={500}
             />
           </div>
-          <div className={c(`about-section ${cn({ active: isIntersecting })}`)}>
-            <div className={c("about-info")}>
-              {about.map((a) =>
-                Object.entries(a).map(([key, value]) => (
-                  <div key={key} className={c("about-field")}>
-                    <BsChevronCompactRight className={c("about-icon")} />{" "}
-                    <p className={c("about-personal")}>
-                      <span
-                        className={c("about-personal--key")}
-                      >{`${key}:`}</span>
-                      <span className={c("about-personal--value")}>
-                        {value}
-                      </span>
-                    </p>
-                  </div>
-                ))
-              )}
-            </div>
-            <div className={c("about-description")}>
-              <p className={c("about-description-text")}>
-                Frontend developer with expertise in HTML, CSS, JavaScript, and
-                popular frameworks such as React. Passionate about user-friendly
-                web applications with a focus on performance optimization and
-                accessibility. Strong problem-solving abilities and
-                collaborative mindset for delivering high-quality code.
-              </p>
-            </div>
+        </div>
+        <div className={c(`about-section ${cn({ active: isIntersecting })}`)}>
+          <div className={c("about-info")}>
+            {about.map((a) =>
+              Object.entries(a).map(([key, value]) => (
+                <div key={key} className={c("about-field")}>
+                  <BsChevronCompactRight className={c("about-icon")} />{" "}
+                  <p className={c("about-personal")}>
+                    <span
+                      className={c("about-personal--key")}
+                    >{`${key}:`}</span>
+                    <span className={c("about-personal--value")}>{value}</span>
+                  </p>
+                </div>
+              ))
+            )}
+          </div>
+          <div className={c("about-description")}>
+            <p className={c("about-description-text")}>
+              Frontend developer with expertise in HTML, CSS, JavaScript, and
+              popular frameworks such as React. Passionate about user-friendly
+              web applications with a focus on performance optimization and
+              accessibility. Strong problem-solving abilities and collaborative
+              mindset for delivering high-quality code.
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

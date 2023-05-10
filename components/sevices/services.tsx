@@ -4,6 +4,8 @@ import Heading from "@/components/heading";
 import Service from "./service";
 import { classStyle } from "@/lib/helpers";
 import useSwipe from "@/hooks/useSwipe";
+import useIntersction from "@/hooks/useIntersection";
+import { data } from "@/lib/data/services-data";
 import cn from "classnames";
 import styles from "./services.module.scss";
 
@@ -15,40 +17,44 @@ export default function Services() {
     traveled,
     index,
     isTransiting,
-    mouseDownHandler,
-    mouseMoveHandler,
-    mouseUpHandler,
+    downHandler,
+    moveHandler,
+    upHandler,
   } = useSwipe();
+  const { ref, isIntersecting } = useIntersction();
 
   return (
-    <div className={c("services")}>
-      <Heading>services</Heading>
-      <div className={c("services-container")}>
+    <section ref={ref} className={c("services")}>
+      <Heading>my services</Heading>
+      <div
+        className={c(`services-container ${cn({ animation: isIntersecting })}`)}
+      >
         <div
           ref={containerRef}
-          onMouseDown={mouseDownHandler}
-          onMouseMove={mouseMoveHandler}
-          onMouseUp={mouseUpHandler}
+          onMouseDown={downHandler}
+          onTouchStart={downHandler}
+          onMouseMove={moveHandler}
+          onTouchMove={moveHandler}
+          onMouseUp={upHandler}
+          onTouchEnd={upHandler}
           className={c("services-service-container")}
         >
-          {Array(10)
-            .fill("")
-            .map((a, idx) => (
-              <div
-                className={c(
-                  `services-service ${cn({ transit: isTransiting })}`
-                )}
-                style={{ transform: `translateX(${traveled}px)` }}
-              >
-                <Service num={idx} />
-              </div>
-            ))}
+          {data.map((d, idx) => (
+            <div
+              key={d.title}
+              className={c(`services-service ${cn({ transit: isTransiting })}`)}
+              style={{ transform: `translateX(${traveled}px)` }}
+            >
+              <Service {...d} />
+            </div>
+          ))}
         </div>
         <div className={c("services-indicators")}>
-          {Array(10)
+          {Array(data.length)
             .fill("")
             .map((a, idx) => (
               <span
+                key={idx}
                 className={c(
                   `services-indicators-single ${cn({ active: index === idx })}`
                 )}
@@ -56,6 +62,6 @@ export default function Services() {
             ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

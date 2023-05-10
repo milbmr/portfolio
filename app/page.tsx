@@ -2,7 +2,8 @@ import Image from "next/image";
 import Hero from "@/components/hero";
 import Nav from "@/components/nav";
 import About from "@/components/about";
-import Services from "@/components/sevices/services";
+import Services from "@/components/sevices";
+import Contact from "@/components/contact";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <main className="container">
         <About />
         <Services />
+        <Contact />
       </main>
     </>
   );

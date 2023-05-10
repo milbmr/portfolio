@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, MouseEvent } from "react";
 import { getTraveledDistance, getRatio, getEvent } from "lib/helpers";
 import classNames from "classnames";
 
@@ -40,12 +40,16 @@ export default function useSwipe() {
     };
   }, [traveled]);
 
-  const mouseDownHandler = (event: React.MouseEvent | React.TouchEvent) => {
+  const downHandler = (
+    event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
+  ) => {
     startX.current = getEvent(event).clientX;
     setIsSwiping(true);
   };
 
-  const mouseMoveHandler = (event: React.MouseEvent | React.TouchEvent) => {
+  const moveHandler = (
+    event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
+  ) => {
     if (!isSwiping) return;
     currentX.current = getEvent(event).clientX;
     const distance = getTraveledDistance(startX.current, currentX.current);
@@ -56,7 +60,7 @@ export default function useSwipe() {
     setIstransiting(false);
   };
 
-  const mouseUpHandler = (event: React.MouseEvent | React.TouchEvent) => {
+  const upHandler = (event: React.MouseEvent | React.TouchEvent) => {
     setIsSwiping(false);
     const containerLength = containerRef.current!.childNodes.length;
     const width =
@@ -82,8 +86,8 @@ export default function useSwipe() {
     traveled,
     index: index.current,
     isTransiting,
-    mouseDownHandler,
-    mouseMoveHandler,
-    mouseUpHandler,
+    downHandler,
+    moveHandler,
+    upHandler,
   };
 }

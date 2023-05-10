@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Raleway, Source_Code_Pro, Poppins } from "next/font/google";
+import { Raleway, Poppins, Fira_Code } from "next/font/google";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -10,9 +10,9 @@ const poppins = Poppins({
   variable: "--font-poppins",
   weight: ["400", "500", "600", "700"],
 });
-const source_code_pro = Source_Code_Pro({
+const fira_code = Fira_Code({
   subsets: ["latin"],
-  variable: "--font-source-code",
+  variable: "--font-code",
 });
 
 export const metadata = {
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.variable} ${source_code_pro.variable} ${poppins.variable}`}
+        className={`${raleway.variable} ${fira_code.variable} ${poppins.variable}`}
       >
         {children}
       </body>

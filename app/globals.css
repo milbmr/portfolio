@@ -24,9 +24,56 @@ body {
   font-family: var(--font-raleway), sans-serif;
   background-color: var(--bg);
   color: #fff;
+  overflow-x: hidden;
 }
 
 .container {
-  width: 120rem;
+  max-width: 120rem;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 48em) {
+  .container {
+    max-width: 65rem;
+  }
+}
+
+@media screen and (max-width: 20em) {
+  html {
+    font-size: 50%;
+  }
+
+  .container {
+    max-width: 35rem;
+  }
+}
+
+@media screen and (min-width: 87.5em) {
+  html {
+    font-size: 75%;
+  }
+
+  .container {
+    max-width: 110rem;
+  }
+}
+
+@media screen and (min-width: 100em) {
+  html {
+    font-size: 68.75%;
+  }
+
+  .container {
+    max-width: 130rem;
+  }
+}
+
+@media screen and (min-width: 118.75em) {
+  html {
+    font-size: 87.5%;
+  }
+
+  .container {
+    max-width: 135rem;
+  }
 }

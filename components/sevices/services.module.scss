@@ -1,14 +1,27 @@
 .services {
-  height: 100vh;
+  padding: 10rem 0;
+
+  @media screen and (max-width: 48em) {
+    padding: 5rem 0;
+  }
 
   &-container {
     width: 100%;
     height: 45rem;
+    margin-top: 5rem;
     background-color: rgba(4, 4, 4, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+
+    &.animation {
+      animation: up-shift 1s ease-in-out both;
+    }
+
+    @media screen and (max-width: 48em) {
+      height: 50rem;
+    }
   }
 
   &-service-container {
@@ -22,6 +35,10 @@
     min-width: 50%;
     height: 100%;
     padding: 0.5rem;
+
+    @media screen and (max-width: 20em) {
+      min-width: 100%;
+    }
   }
 
   .transit {
@@ -47,5 +64,17 @@
 
   .active {
     background-color: var(--p-c);
+  }
+}
+
+@keyframes up-shift {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
